@@ -1,0 +1,7 @@
+{
+  "name": "WebCrawler",
+  "version": "1.0.0",
+  "description": "This app is a web crawler done for an assignment",
+  "main": "app.js",
+  "license": "MIT"
+}
