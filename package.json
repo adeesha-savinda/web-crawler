@@ -3,5 +3,18 @@
   "version": "1.0.0",
   "description": "This app is a web crawler done for an assignment",
   "main": "app.js",
-  "license": "MIT"
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "start": "NODE_ENV=dev nodemon app.js"
+  },
+  "dependencies": {
+    "axios": "^0.21.1",
+    "cheerio": "^1.0.0-rc.9",
+    "config": "^3.3.6",
+    "mysql2": "^2.2.5"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
 }
