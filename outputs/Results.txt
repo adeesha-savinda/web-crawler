@@ -1,14 +1,9 @@
-URL: https://www.srilanka.travel/
-Keywords found: Safari,Whale Watching,Island,Tourism,Heritage
-Locations mentioned: Safari,Whale Watching,Island,Tourism,Heritage
+URL: http://www.tourismmin.gov.lk
+Keywords found: Tourism
+Locations mentioned: Tourism
 ============================================
 
-URL: https://www.srilanka.travel/
-Keywords found: Safari,Whale Watching,Island,Tourism,Heritage
-Locations mentioned: Safari,Whale Watching,Island,Tourism,Heritage
-============================================
-
-URL: https://www.srilanka.travel/
+URL: https://www.srilanka.travel
 Keywords found: Safari,Whale Watching,Island,Tourism,Heritage
 Locations mentioned: Safari,Whale Watching,Island,Tourism,Heritage
 ============================================

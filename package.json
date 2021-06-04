@@ -19,7 +19,8 @@
     "cross-env": "^7.0.3",
     "get-urls": "^10.0.0",
     "line-reader": "^0.4.0",
-    "mysql2": "^2.2.5"
+    "mysql2": "^2.2.5",
+    "prompt": "^1.1.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.7"

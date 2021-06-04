@@ -1,28 +1,28 @@
 import axios from 'axios';
 import cheerio from 'cheerio';
-import getUrls from 'get-urls';
 import fs from 'fs';
 import path from 'path';
 import Promise from 'bluebird';
-import lineReader from 'line-reader'
+import lineReader from 'line-reader';
+import prompt from 'prompt';
 
 import Locations from './models/locations';
-
-// const check
 
 
 const crawl = async () => {
     try {
+        let { urls } = await prompt.get(['urls']);
         //get all the urls
-        const urls = ['https://www.srilanka.travel/'];
+        urls = urls.split(',');
         //get all locations from database
         const [locations, _] = await Locations.selectAll();
-
         // initialize keyword file reading - promisify to use async await
         const keywords = Promise.promisify(lineReader.eachLine);
+        // count no of crawled sites with data
+        let count = 0;
 
         // loop through each url content
-        urls.forEach(async (url) => {
+        await urls.forEach(async (url) => {
             // define the output format
             const output = {
                 url,
@@ -41,6 +41,7 @@ const crawl = async () => {
             let text = '';
 
             console.log('Wait.. content loading');
+            console.log(`URL: ${url}`);
 
             //extract all content in headers, paragraphs and body tags
             await $('h1, h2, h3, h4, h5, h6, p, body').map((_, element) => {
@@ -66,14 +67,16 @@ const crawl = async () => {
                 }
             });
 
-            if (output.locations.length && output.keywords.length) {
+            if (output.locations.length || output.keywords.length) {
                 await fs.promises.appendFile(path.join(__dirname, 'outputs', 'Results.txt'), `URL: ${output.url}\n`);
                 await fs.promises.appendFile(path.join(__dirname, 'outputs', 'Results.txt'), `Keywords found: ${output.keywords}\n`);
                 await fs.promises.appendFile(path.join(__dirname, 'outputs', 'Results.txt'), `Locations mentioned: ${output.keywords}\n`);
                 await fs.promises.appendFile(path.join(__dirname, 'outputs', 'Results.txt'), `============================================\n\n`);
+                ++count;
             }
-
-            console.log(output);
+            if(count === 5){
+                return;
+            }
         });
     } catch (error) {
         console.log(error);
