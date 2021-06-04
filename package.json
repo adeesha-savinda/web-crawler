@@ -4,14 +4,21 @@
   "description": "This app is a web crawler done for an assignment",
   "main": "app.js",
   "license": "MIT",
-  "type": "module",
+  "type": "commonjs",
   "scripts": {
-    "start": "NODE_ENV=dev nodemon app.js"
+    "start": "cross-env NODE_ENV=dev nodemon --exec babel-node app.js"
   },
   "dependencies": {
+    "@babel/core": "^7.14.3",
+    "@babel/node": "^7.14.2",
+    "@babel/preset-env": "^7.14.4",
     "axios": "^0.21.1",
+    "bluebird": "^3.7.2",
     "cheerio": "^1.0.0-rc.9",
     "config": "^3.3.6",
+    "cross-env": "^7.0.3",
+    "get-urls": "^10.0.0",
+    "line-reader": "^0.4.0",
     "mysql2": "^2.2.5"
   },
   "devDependencies": {
